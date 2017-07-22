@@ -7,7 +7,7 @@ from django.contrib import admin
 from .models import Detail
 from .models import Course
 from .models import Subject
-from .models import Professor
+
 
 class StudentAdmin(admin.ModelAdmin):
 	fieldset = [("Student Detail", {"field":["first_name","last_name"]})
@@ -15,13 +15,12 @@ class StudentAdmin(admin.ModelAdmin):
 	
 def Student_Course(self, obj):
 	return obj.list_course()
-
 	
 list_display = ("first_name","last_name")
 
 admin.site.register(Course)
 admin.site.register(Detail)
 admin.site.register(Subject)
-admin.site.register(Professor)
+
 
 

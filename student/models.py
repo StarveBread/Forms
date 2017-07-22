@@ -40,15 +40,5 @@ class Subject(models.Model):
 	
 	def __str__(self):
 		return self.subject_name
-		
-class Professor(models.Model):
-	first_name = models.CharField(max_length=150)
-	last_name = models.CharField(max_length=150)
-	middle_name = models.CharField(max_length=150)
-	course = models.ManyToManyField("Course",related_name="Professor")
 
-	
-	def __str__(self):
-		return self.first_name
 
-		
