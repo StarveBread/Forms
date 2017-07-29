@@ -1,0 +1,16 @@
+<title>Test Page</title>
+<body>
+<h1>Test</h1>
+{% if request.user.is_authenticated %}
+	<h1>Hi {{request.user.username |title}}!</h1>
+		{% else %}
+	<p>Welcome!</p>
+{% endif %}
+</body>
+
+
+<h1>{{ subjects.count }} Subjects:</h1>
+
+{% for sub in subjects %}
+	<p>{{ sub.subject_name }} {{ sub.subject_description }}</p>
+{% endfor %}

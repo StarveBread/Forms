@@ -1,0 +1,16 @@
+<title>Test Page</title>
+<body>
+<h1>Test</h1>
+{% if request.user.is_authenticated %}
+	<h1>Hi {{request.user.username |title}}!</h1>
+		{% else %}
+	<p>Welcome!</p>
+{% endif %}
+</body>
+
+
+<h1>{{ courses.count }} Courses:</h1>
+
+{% for corse in courses %}
+	<p>{{ corse.course_name }} {{ corse.course_description }}</p>
+{% endfor %}

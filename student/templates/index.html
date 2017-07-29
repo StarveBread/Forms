@@ -1,0 +1,16 @@
+<title>Test Page</title>
+<body>
+<h1>Test</h1>
+{% if request.user.is_authenticated %}
+	<h1>Hi {{request.user.username |title}}!</h1>
+		{% else %}
+	<p>Welcome!</p>
+{% endif %}
+</body>
+
+
+<h1>{{ students.count }} Students:</h1>
+
+{% for student in students %}
+	<p>{{ student.first_name }} {{ student.middle_name }} {{ student.last_name }}</p>
+{% endfor %}
