@@ -6,6 +6,7 @@ from django.views.generic import View
 
 from .models import Detail
 from .models import Course
+from .models import Subject
 
 # Create your views here.
 def list_student(request):
@@ -25,8 +26,8 @@ class courses_list(View):
 		
 class subjects_list(View):
 	def get(self,request):
-		subjects = Course.objects.all()
+		subject = Subject.objects.all()
 		context = {
-		'subjects' : subjects,
+		'subjects' : subject,
 		}
 		return render(request,"subjects.html",context)
