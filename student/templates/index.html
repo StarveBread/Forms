@@ -12,10 +12,10 @@
 <h1>{{ students.count }} Students:</h1>
 
 {% for student in students %}
-	<a href="admin/student/detail/{{student.id}}/change"><p>{{ student.first_name }} {{ student.middle_name }} {{ student.last_name }}</p></a>
+	<p>{{ student.first_name }} {{ student.middle_name }} {{ student.last_name }}</p>
 {% endfor %}
 
-<a href="courses"><li>Courses</li></a>
-<a href="subjects"><li>Subjects</li></a>
+<li>Courses</li>
+<li>Subjects</li>
 
 </body>
