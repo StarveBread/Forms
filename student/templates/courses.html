@@ -1,6 +1,6 @@
 <title>Test Page</title>
 <body>
-<h1>Test</h1>
+<p>Test</p>
 {% if request.user.is_authenticated %}
 	<h1>Hi {{request.user.username |title}}!</h1>
 		{% else %}
