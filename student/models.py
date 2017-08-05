@@ -21,6 +21,22 @@ class Detail(models.Model):
 
 	def save(self, *args,**kwargs):
 		super(Detail,self).save(*args,**kwargs)
+		
+		
+		
+class Faculty(models.Model):
+	first_name = models.CharField(max_length=150)
+	last_name = models.CharField(max_length=150)
+	middle_name = models.CharField(max_length=150)
+	position = models.CharField(max_length=150)
+	bio = models.TextField(max_length=500)
+	
+	
+	def __str__(self):
+		return self.first_name
+
+	def save(self, *args,**kwargs):
+		super(Faculty,self).save(*args,**kwargs)
 
 
 

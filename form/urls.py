@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from student.views import subjects_list,courses_list,list_student
+from student.views import subjects_list,courses_list,list_student,faculty_list,faculty_list_2
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 	url(r'^$', list_student,name='student'),
 	url(r'^courses/$',courses_list.as_view(),name="courses"),
 	url(r'^subjects/$',subjects_list.as_view(),name="subjects"),
+	url(r'^faculty/$',faculty_list.as_view(),name="faculty"),
+	url(r'^faculty2/$',faculty_list_2,name="faculty2"),
 ]

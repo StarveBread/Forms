@@ -7,6 +7,7 @@ from django.contrib import admin
 from .models import Detail
 from .models import Course
 from .models import Subject
+from .models import Faculty
 
 
 class StudentAdmin(admin.ModelAdmin):
@@ -34,10 +35,17 @@ class SubjectAdmin(admin.ModelAdmin):
 	list_editable = ("subject_description",)
 	list_filter = ("subject_name",)
 	search_fields = ("subject_name","subject_description",)
+	
+class FacultyAdmin(admin.ModelAdmin):
+	list_display = ("first_name","last_name",)
+	list_editable = ("last_name",)
+	list_filter = ("last_name",)
+	search_fields = ("position",)
 
 admin.site.register(Course,CourseAdmin)
 admin.site.register(Detail,DetailAdmin)
 admin.site.register(Subject,SubjectAdmin)
+admin.site.register(Faculty,FacultyAdmin)
 
 
 
