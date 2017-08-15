@@ -1,13 +1,10 @@
-<title>Test Page</title>
+<title>Info for {{ detail.first_name }}</title>
 <body>
-{% if request.user.is_authenticated %}
-	<h1>Hi {{request.user.username |title}}!</h1>
-		{% else %}
-	<p>Welcome!</p>
-{% endif %}
-
+	<h1>ID Number : {{ detail.id }}</h1>
+	<p>-------------------------------------</p>
 	<p>First Name: {{ detail.first_name }}</p>
 	<p>Last Name: {{ detail.last_name }}</p>
 	<p>Middle Name: {{ detail.middle_name }}</p>
+	<p>Age: {{ detail.age }}</p>
 	<p>-------------------------------------</p>
 </body>
