@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<title>Info for {{ detail.first_name }}</title>
+<body>
+	<h1>ID Number : {{ detail.id }}</h1>
+	<p>-------------------------------------</p>
+	<p>First Name: {{ detail.first_name }}</p>
+	<p>Last Name: {{ detail.last_name }}</p>
+	<p>Middle Name: {{ detail.middle_name }}</p>
+	<p>Age: {{ detail.age }}</p>
+	{% for courses in details.course.all %}
+	<p>Course: {{ course }}</p>
+	{% endfor %}
+	<p>-------------------------------------</p>
+{% endblock %}
+</body>

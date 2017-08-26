@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<h1>{{ courses.count }} Courses:</h1>
+
+{% for corse in courses %}
+	<p>{{ corse.course_name }} {{ corse.course_description }}</p>
+{% endfor %}
+{% endblock %}

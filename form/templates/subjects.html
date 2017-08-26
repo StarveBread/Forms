@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- <body>
+<p>Test</p>
+{% if request.user.is_authenticated %}
+	<h1>Hi {{request.user.username |title}}!</h1>
+		{% else %}
+	<p>Welcome!</p>
+{% endif %} -->
+
+<h1>{{ subjects.count }} Subjects:</h1>
+
+{% for sub in subjects %}
+	<p>{{ sub.subject_name }} {{ sub.subject_description }}</p>
+{% endfor %}
+{% endblock %}

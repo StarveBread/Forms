@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<!--
+<title>Test Page</title>
+<body>
+<p>Test</p>
+{% if request.user.is_authenticated %}
+	<h1>Hi {{request.user.username |title}}!</h1>
+		{% else %}
+	<p>Welcome!</p>
+{% endif %} -->
+
+
+
+<h1>{{ students.count }} Students:</h1>
+
+{% for student in students %}
+	<a href="{% url 'studentdetail' pk=student.id %}"><p>{{ student.first_name }} {{ student.middle_name }} {{ student.last_name }}</p></a>
+{% endfor %}
+
+<a href="{% url 'courses' %}"><li>Courses</li></a>
+<a href="{% url 'subjects' %}"><li>Subjects</li></a>
+{% endblock %}
+<!-- "\student\{{ student.id }}" -->
