@@ -23,6 +23,8 @@ def list_student(request):
 class StudentDetail(DetailView):
 	model = Detail
 	template_name = "student.html"
+
+
 	
 	def get_context_data(self, **kwargs):
 		context = super(StudentDetail, self).get_context_data(**kwargs)
@@ -31,8 +33,10 @@ class StudentDetail(DetailView):
 class courses_list(View):
 	def get(self,request):
 		courses = Course.objects.all()
+		details = Detail.objects.all()
 		context = {
 		'courses' : courses,
+		'details' : details,
 		}
 		return render(request,"courses.html",context)
 		

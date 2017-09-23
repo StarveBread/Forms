@@ -9,7 +9,7 @@
 	<p>Last Name: {{ detail.last_name }}</p>
 	<p>Middle Name: {{ detail.middle_name }}</p>
 	<p>Age: {{ detail.age }}</p>
-	{% for course in details.courses.all %}
+	{% for course in student.courses.all %}
 	<p>Course: {{ course }}</p>
 	{% endfor %}
 	<p>-------------------------------------</p>
