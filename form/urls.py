@@ -15,12 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from student.views import subjects_list,courses_list,list_student,faculty_list, StudentDetail
+from student.views import subjects_list,courses_list,list_student,faculty_list, StudentDetail,Student,StudentUpdate
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 	url(r'^student/$', list_student,name='student'),
 	url(r'^student/(?P<pk>[-\w]+)/$',StudentDetail.as_view(),name='studentdetail'),
+	url(r'^student-form/$', Student.as_view(), name='student-form'),
+	url(r'^student/(?P<pk>[-\w]+)/edit/$', StudentUpdate.as_view(), name='student-form-edit'),
 	url(r'^courses/$',courses_list.as_view(),name="courses"),
 	url(r'^subjects/$',subjects_list.as_view(),name="subjects"),
 	url(r'^faculty/$',faculty_list.as_view(),name="faculty"),

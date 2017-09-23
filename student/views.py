@@ -3,8 +3,11 @@ from __future__ import unicode_literals
 
 #from django.views.generic.detail import DetailView
 from django.utils import timezone
-from django.shortcuts import render
-from django.views.generic import View, DetailView
+from django.shortcuts import render,get_object_or_404, redirect
+from django.views.generic import View, DetailView, UpdateView
+from django.views.generic.edit import FormView
+
+from .forms import StudentForm
 
 from .models import Detail
 from .models import Course
@@ -55,5 +58,46 @@ class faculty_list(View):
 		'faculty' : faculties,
 		}
 		return render(request,"Faculty.html",context)
+		
+		
+class Student(View):
+	def get(self, request):
+		student = Detail.objects.all()
+		context = {
+			'student' : student,
+			'form' : StudentForm,
+		}
+		return render(request, "student-form.html", context)
+		
+	def post(self, request):
+		form = StudentForm(request.POST)
+		student = Detail.objects.all()
+		
+		if form.is_valid():
+			form.save()
+			return redirect('student')
+			
+		context = {
+			'form' : form,
+			'student' : student,
+		}
+		
+		return render(request, "student-form.html", context)
+		
+		
+class StudentUpdate(UpdateView):
+	model = Detail
+	form_class = StudentForm
+	template_name = 'student-form-edit.html'
+	success_url = '#'
+	
+
+	def get_object(self, *args, **kwargs):
+		first_name = get_object_or_404(Detail, pk=self.kwargs['pk'])
+
+		
+			
+			
+		return first_name
 		
 
